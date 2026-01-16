@@ -1,10 +1,16 @@
-import React from 'react'
-import MovieCard from './MovieCard'
+import React from "react";
+import MovieCard from "./MovieCard";
 
-export default function MovieList() {
+export default function MovieList({ movies }) {
+  if (movies.length === 0) {
+    return <h2>No movies found</h2>;
+  }
   return (
     <div className="movie-list">
-        <MovieCard />       
-      </div>
-  )
+      {movies.map((movie) => (
+        <MovieCard key={movie.imdbID} movie={movie} />
+      ))}
+      <MovieCard />
+    </div>
+  );
 }
