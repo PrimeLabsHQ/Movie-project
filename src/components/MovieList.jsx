@@ -10,7 +10,7 @@ export default function MovieList({ movies }) {
       {movies.map((movie) => (
         <MovieCard key={movie.imdbID} movie={movie} />
       ))}
-      <MovieCard />
+      {/* <MovieCard /> */}
     </div>
   );
 }
