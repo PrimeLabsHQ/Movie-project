@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function MovieCard({ movie }){
+export default function MovieCard({ movie }) {
   return (
     <div className="movie-card">
       <img alt={movie.Title} src={movie.Poster} />
