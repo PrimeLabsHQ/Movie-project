@@ -144,3 +144,4 @@ Workflow file: `.github/workflows/ci.yml`
 This project is open source and available under the MIT License.
 ## Contributors
  - Pirzada Muhammad Abdullah
+ - Usman Siddique
