@@ -25,7 +25,7 @@ A modern web application for exploring movies using the OMDB API. Built with Rea
 ## Project Structure
 
 ```
-yahoo-movie-project/
+movie-project/
 ├── public/              # Static files
 ├── src/
 │   ├── components/      # Reusable components
@@ -50,7 +50,7 @@ yahoo-movie-project/
 
    ```bash
    git clone <repository-url>
-   cd yahoo-movie-project
+   cd movie-project
    ```
 
 2. Install dependencies:
@@ -80,10 +80,10 @@ Build and run the application using Docker:
 
 ```bash
 # Build the image
-docker build -t yahoo-movie-project .
+docker build -t movie-project .
 
 # Run the container
-docker run -p 8080:80 yahoo-movie-project
+docker run -p 8080:80 movie-project
 ```
 
 Or use Docker Compose:
