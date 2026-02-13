@@ -25,6 +25,27 @@ jobs:
 
       - name: Build
         run: npm run build
+      - name: Build Docker image
+        run: |
+          docker build -t yahoo-movie-project:latest .
+
+      - name: Run container (smoke test)
+        run: |
+          docker run -d --name ci_yahoo -p 8080:80 yahoo-movie-project:latest
+          # wait for container to start
+          for i in {1..30}; do
+            if curl -sSf http://localhost:8080 >/dev/null; then
+              echo "Server is up" && break
+            fi
+            echo "Waiting for server... ($i)"
+            sleep 1
+          done
+          curl -sSf http://localhost:8080 > /tmp/ci_index.html
+
+      - name: Stop and remove container
+        if: always()
+        run: |
+          docker rm -f ci_yahoo || true
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
