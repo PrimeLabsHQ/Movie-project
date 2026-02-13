@@ -133,3 +133,5 @@ yahoo-movie-project/
 ## License
 
 This project is open source and available under the MIT License.
+## Contributors
+ - Pirzada Muhammad Abdullah
