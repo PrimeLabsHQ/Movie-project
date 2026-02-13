@@ -74,6 +74,46 @@ yahoo-movie-project/
 - `npm run preview` - Preview production build locally
 - `npm run lint` - Run ESLint to check code quality
 
+## Docker
+
+Build and run the application using Docker:
+
+```bash
+# Build the image
+docker build -t yahoo-movie-project .
+
+# Run the container
+docker run -p 8080:80 yahoo-movie-project
+```
+
+Or use Docker Compose:
+
+```bash
+docker compose up --build
+```
+
+The app will be available at `http://localhost:8080`.
+
+**Image Details:**
+
+- Multi-stage build using `node:22-alpine` for build and `nginx:alpine` for runtime
+- Static build artifacts served by lightweight nginx
+- Optimized for minimal image size (~100-150MB)
+
+## CI/CD
+
+This project uses GitHub Actions for continuous integration. The workflow runs on pull requests and pushes to the `main` branch.
+
+**Steps:**
+
+1. Checkout code
+2. Setup Node.js 22
+3. Install dependencies
+4. Build application
+5. Upload build artifacts
+
+Workflow file: `.github/workflows/ci.yml`
+
 ## How to Use
 
 1. **Search for Movies**:
@@ -90,37 +130,7 @@ yahoo-movie-project/
    - The app loads with Avengers movies by default
    - You can search for any movie available in the OMDB database
 
-## Key Components
-
-### Home.jsx
-
-- Displays search form and movie list
-- Fetches movies from OMDB API based on search query
-- Shows loading state while fetching data
-
-### MovieDetail.jsx
-
-- Displays detailed information about a selected movie
-- Fetches individual movie data from OMDB API using IMDb ID
-- Includes error handling and loading states
-
-### MovieCard.jsx
-
-- Reusable component for displaying individual movie entries
-- Shows poster, title, year, and details link
-
-### Navbar.jsx
-
-- Navigation header with app logo and home link
-- Provides consistent navigation across pages
-
 ## Dependencies
-
-### Production
-
-- `react@^19.2.0` - UI library
-- `react-dom@^19.2.0` - React DOM binding
-- `react-router-dom@^7.12.0` - Client-side routing
 
 ### Development
 
@@ -128,7 +138,6 @@ yahoo-movie-project/
 - `eslint` - Code quality tool
 - `babel-plugin-react-compiler` - React compiler optimization
 - Various linting and type definition packages
-
 
 ## License
 
