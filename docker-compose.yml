@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: yahoo-movie-project:latest
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    # Uncomment to pass environment file into container (not required for production static build)
+    # env_file:
+    #   - .env
