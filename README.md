@@ -89,7 +89,7 @@ docker run -p 8080:80 movie-project
 Or use Docker Compose:
 
 ```bash
-docker compose up --build
+docker compose up --build -d
 ```
 
 The app will be available at `http://localhost:8080`.
